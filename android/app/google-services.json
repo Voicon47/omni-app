@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "680961824820",
+    "project_id": "smart-home-db211",
+    "storage_bucket": "smart-home-db211.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680961824820:android:b625119c60c8708d881261",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680961824820-rhdf8l84ipvil7inifjabn7cgcqlmffe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKSvEzcw7ZYUXR8FrUMG5WreBn6tVNTyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680961824820-rhdf8l84ipvil7inifjabn7cgcqlmffe.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "680961824820-1mgn44oamk7kgc7mokrf3erm3aqibtc2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplication1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
