@@ -1,16 +1,39 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home/services/auth/auth_service.dart';
 import 'package:smart_home/src/screens/login_screen/components/icon_wrap.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:login/components/icon_wrap.dart';
-// import 'package:login/theme/app_colors.dart';
-// import 'package:login/bloc/auth/auth_bloc.dart';
-// import 'package:login/service/google_oauth_service.dart';
-// import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
+  Login({super.key, required this.setLoading});
+
+  final Function setLoading;
+  final auth = AuthService();
+
+  void handleOnClick(BuildContext context) async {
+    setLoading(true);
+
+    final userCredential = await auth.signInWithGoogle();
+
+    // print("Begin return $userCredential");
+    if (!context.mounted) return;
+    // final idToken = await FirebaseAuth.instance.currentUser?.getIdToken();
+    // print("\nidToken: $idToken");
+
+    if (userCredential) {
+      // Login successful → Navigate to Home screen
+      print("navigate to home screen");
+      // await Future.delayed(const Duration(milliseconds: 100)); // smooth delay
+      Navigator.pop(context);
+      Navigator.of(context).pushReplacementNamed('/home-screen');
+    } else {
+      // Optional: Show error or toast
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Login failed or canceled')));
+    }
+    setLoading(false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -110,10 +133,7 @@ class Login extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
-              onPressed: () {
-                // context.read<AuthBloc>().add(SignIn());
-                AuthService().signInWithGoogle();
-              },
+              onPressed: () => {handleOnClick(context)},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

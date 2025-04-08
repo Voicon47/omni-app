@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class SizeConfig {
+class SizeCsonfig {
   static MediaQueryData? _mediaQueryData;
   static double? screenWidth;
   static double? screenHeight;
@@ -18,14 +18,14 @@ class SizeConfig {
 
 // Get the proportionate height as per screen size
 double getProportionateScreenHeight(double inputHeight) {
-  double screenHeight = SizeConfig.screenHeight as double;
+  double screenHeight = SizeCsonfig.screenHeight as double;
   // 812 is the layout height that designer use
   return (inputHeight / 585) * screenHeight;
 }
 
 // Get the proportionate height as per screen size
 double getProportionateScreenWidth(double inputWidth) {
-  double screenWidth = SizeConfig.screenWidth as double;
+  double screenWidth = SizeCsonfig.screenWidth as double;
   // 375 is the layout width that designer use
   return (inputWidth / 270) * screenWidth;
 }

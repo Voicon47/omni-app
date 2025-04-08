@@ -77,6 +77,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home/routes/routes.dart';
 import 'package:smart_home/src/screens/splash_screen/splash_screen.dart';
+import 'package:smart_home/src/widgets/auth_gate.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -98,8 +99,22 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'MetaHome',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(fontFamily: 'Poppins', primarySwatch: Colors.blue),
-          home: const SplashScreen(),
+          theme: ThemeData(
+            fontFamily: 'Poppins',
+            primarySwatch: Colors.blue,
+            colorScheme: const ColorScheme.light(
+              primary: Color.fromARGB(255, 0, 0, 0),
+              secondary: Color(0xFFF4AE47),
+              surface: Color.fromARGB(255, 255, 255, 255),
+              // error: Color(0xFFB00020),
+              // onPrimary: Colors.white,
+              // onSecondary: Colors.white,
+              // onSurface: Colors.black,
+              // onError: Colors.white,
+              // brightness: Brightness.light,
+            ),
+          ),
+          home: const AuthGate(),
           routes: routes,
         );
       },
