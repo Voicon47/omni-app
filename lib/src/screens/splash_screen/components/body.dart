@@ -1,5 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:smart_home/config/size_config.dart';
+import 'package:smart_home/routes/paths.dart';
 import 'package:smart_home/src/screens/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,7 @@ class Body extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(
                       context,
-                    ).pushReplacementNamed(LoginScreen.routeName);
+                    ).pushReplacementNamed(Paths.loginScreen);
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
